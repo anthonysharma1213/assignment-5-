@@ -2,19 +2,21 @@
 
 int search(int numbers[], int low, int high, int value) 
 {
-	while(low<=high){
+	if (low>high){
+	return -1; 
+	}
 	int mid= low+(low-high)/2;
-
-	if(a[mid==value]){
+	
+	if(numbers[mid]==value){
 	return mid;
 	}
-	if(a[mid<value]){
-	low= mid+1;
+	else if (numbers[mid]>value){
+	return search(numbers,low,mid,-1,value);
 	}
-	else
-	high=mid-1;
+	else{
+	return search(numbers,low,mid-1,value);
 	}
-	return -1;
+	
 }
 
 void printArray(int numbers[], int sz)
